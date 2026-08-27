@@ -1,0 +1,16 @@
+name: Test Self-Hosted Runner
+
+# This allows you to trigger the workflow manually from the GitHub website
+on: [workflow_dispatch] 
+
+jobs:
+  test-connection:
+    # THIS is the magic line that sends the job to your Docker container
+    runs-on: self-hosted 
+    
+    steps:
+      - name: Print a success message
+        run: echo "Hello from my new local Docker runner!"
+        
+      - name: Check the operating system
+        run: cat /etc/os-release
